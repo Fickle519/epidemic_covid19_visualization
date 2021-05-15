@@ -48,13 +48,13 @@ maven的下载和配置
 
       settings.xml是maven软件自身的配置文件
 
-   1）解压缩 ->  存放在英文路径下 ->  进入到bin文件夹 
+   1. 解压缩 ->  存放在英文路径下 ->  进入到bin文件夹 
       ->  copy路径配置环境变量 (我的电脑右键)   配置环境变量： https://www.cnblogs.com/greamrod/p/10323520.html
-   2）验证安装成功  ->  命令提示符 -> 输入mvn -v (查看版本号)
-   3）关联idea  -> File -> settings -> 搜索maven 
+   2. 验证安装成功  ->  命令提示符 -> 输入mvn -v (查看版本号)
+   3. 关联idea  -> File -> settings -> 搜索maven 
       ->  更改maven home directory为自己下载的maven目录
       ->  设置好settings.xml以及本地仓库(刚才下载的setting.xml和repository)
-   4）设置conf目录下的settings.xml
+   4. 设置conf目录下的settings.xml
        a) 更改本地仓库的配置
         <localRepository>C:\Users\你电脑的用户名\.m2\repository</localRepository>
        b) 通过镜像的方式更好的从中央仓库下载jar包 
@@ -67,7 +67,7 @@ maven的下载和配置
     </mirror>
        c) 把上述地址copy到settings文件的<mirrors>标签下
 
-    5）在idea的user settings file选项中 找到刚才配置的文件。  
+    5. 在idea的user settings file选项中 找到刚才配置的文件。  
 * 其实就是下载好文件然后配置环境变量 然后在IDEA设置里关联MAVEN 然后去修改你关联的setting.xml文件
 
 
