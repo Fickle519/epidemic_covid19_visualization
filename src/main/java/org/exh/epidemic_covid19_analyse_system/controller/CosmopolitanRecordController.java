@@ -19,7 +19,6 @@ public class CosmopolitanRecordController {
 
     @Autowired//Spring提供的注解来把service层中对象的自动注入
     private CosmopolitanRecordService service;
-    DispatcherServlet
 
 
     @RequestMapping("allCosmopolitan.do")//请求的资源名
