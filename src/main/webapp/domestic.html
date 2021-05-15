@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./static/imgs/titleImg.png" rel="icon" type="image/x-icon"/>
+    <!-- Bootstrap CSS 引入BootStrap4框架-->
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./static/css/bootstrap-reboot.min.css">
+
+    <title>国内疫情统计分析</title>
+
+<!--    CSS代码-->
+    <style>
+        .card{
+            width: 500px;
+            height: 400px;
+            float: left;
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+        .cardContainer{
+            position: relative;
+            margin-left: 40px;
+        }
+        .btn-primary{
+            position: absolute;
+            bottom: 5px;
+        }
+        .card-img-top{
+            height: 175px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<!--导航栏 此部分代码源自BootStrap4-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <img src="./static/imgs/headImg.png" alt="titleImg">
+        <a class="navbar-brand" href="test/index.html">疫情数据统计与检索</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="test/index.html">首页<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="domestic.html">国内疫情</a>
+                <li class="nav-item">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="cosmopolitan.html">国外疫情</a>
+                <li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link" href="retrieve.html">疫情搜索</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="retrieve.html" method="get">
+<!--                <input class="form-control mr-sm-1" type="search" placeholder="Searching Epidemic Situation;"-->
+<!--                       aria-label="Search">-->
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Spotlight Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!--页面主区域-->
+
+<div class="container theme-showcase" role="main">
+
+    <div id="bar" style="width: 1150px;height: 325px;"></div>
+    <!--BootStrap4卡片元素-->
+    <div class="cardContainer">
+        <!--BootStrap4卡片元素-->
+        <div class="card" style="width: 260px;">
+            <img src="./static/imgs/masks.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">累计确诊</h5>
+                <p id="totalNum" class="card-text display-2" style="font-size: 40px"></p>
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner" class="btn btn-primary">Look more</a>
+            </div>
+        </div>
+        <!--BootStrap4卡片元素-->
+        <div class="card" style="width: 240px; ">
+            <img src="./static/imgs/doctor.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">累计治愈</h5>
+                <p id="healedNum" class="card-text display-2" style="font-size: 40px"></p>
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner" class="btn btn-primary">Look more</a>
+            </div>
+        </div>
+        <!--BootStrap4卡片元素-->
+        <div class="card" style="width: 240px; ">
+            <img src="./static/imgs/vacine.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">累计死亡</h5>
+                <p id="deadNum" class="card-text display-2" style="font-size: 40px"></p>
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner" class="btn btn-primary">Look more</a>
+            </div>
+        </div>
+        <!--BootStrap4卡片元素-->
+        <div class="card" style="width: 240px;">
+            <img src="./static/imgs/virus.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">现有确诊</h5>
+                <p id="nowNum" class="card-text display-2" style="font-size: 40px"></p>
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner" class="btn btn-primary">Look more</a>
+            </div>
+        </div>
+        <!--        最下面的面包屑导航 显示文字-->
+        <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">数据截止到2020-12-01(不含港澳台地区)</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+</div>
+<!--此部分代码用于有互联网接入时可以使用的代码 用于测试-->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"-->
+<!--        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"-->
+<!--        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"-->
+<!--        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--引入JQuery bootstrap4 echarts util(其中自定义的有发送ajax请求的方法) barChart(生成图像的方法) randerDiagams(绘图的方法)-->
+<script src="./static/js/jquery-3.4.1.min.js"></script>
+<script src="./static/js/bootstrap.bundle.min.js"></script>
+<script src="./static/js/bootstrap.min.js"></script>
+<script src="static/js/echarts.min.js"></script>
+<script src="./static/js/customize/barChart.js"></script>
+<script src="./static/js/customize/util.js"></script>
+<script src="./static/js/customize/randerDiagams.js"></script>
+
+<script type="text/javascript">
+    //在写JS的时候要特别注意异步问题，JavaScript对象的异步任务交给浏览器执行时其他代码仍在运行
+
+    // X轴坐标
+    var xticks = ['重庆','四川','北京','天津','河南','内蒙古','安徽','河北','山东','上海'];
+    //国内累计确诊
+    var domesticTotalNum = 0;
+    //治愈人数
+    var healedTotalNum = 0;
+    //死亡总人数
+    var deadTotalNum = 0;
+    //现有确诊
+    var nowNum = 0;
+    // 存放图表展示信息的对象
+    var dataMapping = {
+        '重庆': [],
+        '四川': [],
+        '北京': [],
+        '天津': [],
+        '河南': [],
+        '内蒙古': [],
+        '安徽': [],
+        '河北': [],
+        '山东': [],
+        '上海': [],
+    };
+
+    var i=0;
+    //发送ajax异步请求 第一个参数是请求的url，第二的地方是发送的参数数据(key1-value1&key1-value1&....),第三个函数是回调函数，当JavaScript接受到响应信息时被调用
+    transferData('allPro.do', '', function (res){
+        console.log(res);
+        /*使用filter方式是为了从全部返回的JSON字符串中过滤出我们所想要找到的JSON对象*/
+        dataMapping["重庆"] = res.filter((item)=>{
+            return item.pname == '重庆';
+        })
+        dataMapping["四川"] = res.filter((item)=>{
+            return item.pname == '四川';
+        })
+        dataMapping["北京"] = res.filter((item)=>{
+            return item.pname == '北京';
+        })
+        dataMapping["天津"] = res.filter((item)=>{
+            return item.pname == '天津';
+        })
+        dataMapping["河南"] = res.filter((item)=>{
+            return item.pname == '河南';
+        })
+        dataMapping["内蒙古"] = res.filter((item)=>{
+            return item.pname == '内蒙古';
+        })
+        dataMapping["安徽"] = res.filter((item)=>{
+            return item.pname == '安徽';
+        })
+        dataMapping["河北"] = res.filter((item)=>{
+            return item.pname == '河北';
+        })
+        dataMapping["山东"] = res.filter((item)=>{
+            return item.pname == '山东';
+        })
+        dataMapping["上海"] = res.filter((item)=>{
+            return item.pname == '上海';
+        })
+        //进行数据的渲染
+        randerData(xticks,dataMapping);
+        //用于调试
+        // console.log(dataMapping);
+        //遍历每一个元素去通过累加来寻找总计数据
+        res.forEach((ele,index)=>{
+            if(ele.exactDate == 1588435200000){//日期截止到2020-12-1
+                domesticTotalNum+=ele.totalNum;
+                healedTotalNum+=ele.healedNum;
+                deadTotalNum+=ele.deadNum;
+
+            }
+        })
+        // 通过DOM操作对象的方式将上述信息打印在元素中并显示
+        nowNum = domesticTotalNum-healedTotalNum-deadTotalNum;
+        var totalNumElement = document.getElementById("totalNum");
+        totalNumElement.innerText = domesticTotalNum;
+        var healedNumElement = document.getElementById("healedNum");
+        healedNumElement.innerText = healedTotalNum;
+        var deadNumElement = document.getElementById("deadNum")
+        deadNumElement.innerText = deadTotalNum;
+        var nowNumElement = document.getElementById("nowNum");
+        nowNumElement.innerText = nowNum;
+        // console.log(domesticTotalNum);
+    });
+    // 调试所用
+    // console.log(dataMapping);
+
+</script>
+</body>
+
+</html>

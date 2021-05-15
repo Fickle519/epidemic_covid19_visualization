@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--此页面是检索数据并展示的页面 使用Html+CSS+JavaScript 和Ajax异步请求的方式与后端交互-->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./static/imgs/titleImg.png" rel="icon" type="image/x-icon"/>
+    <!-- Bootstrap CSS 引入BootStrap4框架-->
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./static/css/bootstrap-reboot.min.css">
+
+    <title>疫情数据统计分析</title>
+
+</head>
+
+<body>
+<!--导航栏 此部分代码源自BootStrap4官网-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!--    <img src="./static/imgs/headImg.png" alt="titleImg">-->
+    <div class="container">
+        <img src="./static/imgs/headImg.png" alt="titleImg">
+        <a class="navbar-brand" href="test/index.html">疫情数据统计与检索</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="test/index.html">首页<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="domestic.html">国内疫情</a>
+                <li class="nav-item">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="cosmopolitan.html">国外疫情</a>
+                <li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link active" href="retrieve.html">疫情搜索</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--页面主区域-->
+<div class="container theme-showcase" role="main">
+    <!--Retrieve标题的代码-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3 text-center">Retrieve</h1>
+            <p class="lead text-center row-cols-md-3 display-4" style="font-size: 30px"> You can retrieve epidemic data
+                by keyword (place name or date)</p>
+        </div>
+    </div>
+<!--    输入栏代码以及按钮-->
+    <div>
+        <div class="form-group">
+<!--            输入栏-->
+            <input type="text" class="form-control" id="inputEle" placeholder="Retrieving for Covid-19(eg:英国 or 美国) (如果不选择搜索模式，默认按照国外疫情搜索噢～)"
+                   value="">
+            <div class="dropdown" style="margin-top: 5px">
+                <a id="revealBtn" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    请选择搜索范围:
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a id="domesticBtn" class="dropdown-item" role="button">国内疫情</a>
+                    <a id="cosmopolitanBtn" class="dropdown-item" role="button">国外疫情</a>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-check">
+            <!--            <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+            <!--            <label class="form-check-label" for="exampleCheck1">Check me out</label>-->
+        </div>
+        <button id="submitBtn" type="submit" class="btn btn-primary">Spotlight Search</button>
+    </div>
+
+<!--    此div用于搜索结果的显示 -->
+    <div style="margin-top: 30px">
+        <div>
+            <h2>Retrieve Result<span class="badge badge-secondary">(support boolean retrieval)</span></h2>
+            <hr>
+        </div>
+        <div>
+<!--当选择搜索范围和点击提交后，JavaScript向后端发送Ajax异步请求 -->
+<!--后端接收并分发请求，处理响应后 将查询结果以JSON的形式传回浏览器前端，前端通过JavaScript DOM对象将数据渲染在这个table表格中-->
+            <table id="resultTable" class="table">
+                <thead id="thead">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">地区</th>
+                        <th scope="col">日期</th>
+                        <th scope="col">累计确诊</th>
+                        <th scope="col">累计治愈</th>
+                        <th scope="col">累计死亡</th>
+                        <th scope="col">当日新增</th>
+                        <th scope="col">风险等级</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+
+                <!--                <tr>-->
+                <!--                    <th scope="row">1</th>-->
+                <!--                    <td>Mark</td>-->
+                <!--                    <td>Otto</td>-->
+                <!--                    <td>@mdo</td>-->
+                <!--                    <td>@mdo</td>-->
+                <!--                    <td>@mdo</td>-->
+                <!--                    <td>@mdo</td>-->
+                <!--                </tr>-->
+
+            </table>
+        </div>
+    </div>
+</div>
+<!--此部分代码用于有互联网接入时可以使用的代码 用于测试-->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"-->
+<!--        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"-->
+<!--        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"-->
+<!--        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"-->
+<!--        crossorigin="anonymous"></script>-->
+<script src="./static/js/jquery-3.4.1.min.js"></script>
+<script src="./static/js/bootstrap.bundle.min.js"></script>
+<script src="./static/js/bootstrap.min.js"></script>
+<script src="./static/js/customize/util.js"></script>
+<script>
+    // 利用dom获取html元素的映射
+    var revealEle = document.getElementById("revealBtn");
+    var domesticEle = document.getElementById("domesticBtn");
+    var cosmopolitanEle = document.getElementById("cosmopolitanBtn");
+    console.log(revealEle.innerText);
+    // 这个点击事件的绑定是为了让选择国内外疫情的按钮生效
+    domesticEle.onclick = function () {
+        revealEle.innerText = domesticEle.text;
+    }
+    // 这个点击事件的绑定是为了让选择国内外疫情的按钮生效
+    cosmopolitanEle.onclick = function () {
+        revealEle.innerText = cosmopolitanEle.text;
+    }
+
+    //获取提交和输入按钮
+    var submitBtnEle = document.getElementById("submitBtn");
+    var inputEle = document.getElementById("inputEle");
+    submitBtnEle.onclick = function () {
+        var url;
+        var retrieveScope = revealEle.innerText;
+        var data = 'wd=' + inputEle.value;
+        var demosticOrCosmopolitan;
+
+        var tbody = document.getElementById("tbody");
+        //用于初始化表格置为空
+        tbody.innerHTML="";
+        if (retrieveScope == '国内疫情') {
+            url = 'demosticRetrieve.do';
+            demosticOrCosmopolitan = 1;
+        } else {
+            url = 'cosmopolitanRetrieve.do';
+            demosticOrCosmopolitan = 0;
+        }
+        //发送ajax异步请求 第一个参数是请求的url，第二的地方是发送的参数数据(key1-value1&key1-value1&....),第三个函数是回调函数，当JavaScript接受到响应信息时被调用
+        transferData(url, data, function (res) {
+
+            // 以下代码是为了将接受回来的数据渲染到表格中去
+            var count = 0;
+            var name;
+            if (demosticOrCosmopolitan == 1) {
+                name = 'pname';
+            } else {
+                name = 'cname';
+            }
+            for (var ele of res) {
+                // 创建DOM对象元素（表示要显示一行数据所要添加的组件）
+                var tr = document.createElement("tr");
+                var th = document.createElement("th");
+                var td1 = document.createElement("td");
+                var td2 = document.createElement("td");
+                var td3 = document.createElement("td");
+                var td4 = document.createElement("td");
+                var td5 = document.createElement("td");
+                var td6 = document.createElement("td");
+                var td7 = document.createElement("td");
+
+                // 将创建的对象存放进这些dom对象中去
+                trEle = tbody.appendChild(tr);
+                thEle = trEle.appendChild(th);
+                thEle.scope = 'row';
+                thEle.innerText = count++;
+                var nameTd = trEle.appendChild(td1);
+                var exactDateTd = trEle.appendChild(td2);
+                var totalNumTd = trEle.appendChild(td3);
+                var healedNumTd = trEle.appendChild(td4);
+                var deadNumTd = trEle.appendChild(td5);
+                var increasedNumTd = trEle.appendChild(td6);
+                var adviceTd = trEle.appendChild(td7);
+
+                // 设置对应创建的元素的文本内容用于显示
+                nameTd.innerText = ele[name];
+                exactDateTd.innerText = new Date(ele.exactDate);
+                totalNumTd.innerText = ele.totalNum;
+                healedNumTd.innerText = ele.healedNum;
+                deadNumTd.innerText = ele.deadNum;
+                increasedNumTd.innerText = ele.increasedNum;
+                //显示出行建议（根据当日新增数判断趋势来给予建议）
+                if(ele.increasedNum>5){
+                    adviceTd.innerText = '高危';
+                    adviceTd.setAttribute("style","color: red")
+                }else if(ele.increasedNum>0 && ele.increasedNum<=5){
+                    adviceTd.innerText = '低危';
+                    adviceTd.setAttribute("style","color: pink")
+                }else if(ele.increasedNum==0){
+                    adviceTd.innerText = '谨慎出行';
+                    adviceTd.setAttribute("style","color: green")
+                }else {
+                    adviceTd.innerText = '出错啦!';
+                }
+            }
+        })
+    }
+</script>
+
+</body>
+
+</html>

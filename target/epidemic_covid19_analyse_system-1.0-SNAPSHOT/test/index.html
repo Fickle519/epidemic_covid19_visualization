@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--    设置title图标-->
+    <link href="../static/imgs/titleImg.png" rel="icon" type="image/x-icon" />
+    <!-- Bootstrap CSS 引入BootStrap4框架-->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-reboot.min.css">
+
+    <title>疫情数据统计分析</title>
+<!--    CSS代码 -->
+    <style>
+        .bi bi-graph-up{
+            float: left;
+        }
+        /*.jumbotron{*/ /*设置灰色title区域的高度*/
+        /*    height: 300px;*/
+        /*}*/
+
+    </style>
+</head>
+
+<body>
+<!--导航栏 此部分代码源自BootStrap4官网-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <img src="../static/imgs/headImg.png" alt="titleImg">
+        <a class="navbar-brand" href="index.html">疫情数据统计与检索</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+<!--        导航-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">首页<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../domestic.html">国内疫情</a>
+                <li class="nav-item">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../cosmopolitan.html">国外疫情</a>
+                <li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link" href="../retrieve.html">疫情搜索</a>
+                </li>
+            </ul>
+<!--            提交表单到retrieve.html页面-->
+            <form class="form-inline my-2 my-lg-0" action="../retrieve.html" method="get">
+<!--                <input class="form-control mr-sm-1" type="search" placeholder="Searching Epidemic"-->
+<!--                       aria-label="Search">-->
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Spotlight Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!--这是那个大的灰色的title元素 源自BootStrap4-->
+<div class="container theme-showcase" role="main">
+    <div class="jumbotron">
+        <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-graph-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+        <h1>Welcome to Epidemic Data Analysing And Retrieving Website!</h1>
+        <p>This website is used to track the epidemic data, obtain and visualize the domestic and foreign epidemic data, and retrieve the epidemic data through the retrieval function</p>
+    </div>
+
+<!--    轮播图代码 BootStrap4框架代码 复制粘贴过来即可使用-->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner"><img src="../static/imgs/masks.jpeg" class="d-block w-100" alt="..."></a>
+            </div>
+            <div class="carousel-item">
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner"><img src="../static/imgs/doctor.jpeg" class="d-block w-100" alt="..."></a>
+            </div>
+            <div class="carousel-item">
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner"><img src="../static/imgs/vacine.jpeg" class="d-block w-100" alt="..."></a>
+            </div>
+            <div class="carousel-item">
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner"><img src="../static/imgs/virus.jpg" class="d-block w-100" alt="..."></a>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<!--此部分代码用于有互联网接入时可以使用的代码 用于测试-->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"-->
+<!--        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"-->
+<!--        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"-->
+<!--        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"-->
+<!--        crossorigin="anonymous"></script>-->
+
+<!--引入JQuery bootstrap4-->
+<script src="../static/jquery-3.4.1.min.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--CosmopolitanRecordDao的Mapping映射文件 存储方法所使用的SQL语句-->
+<!--一个mapper对应着一个Dao类 每一个select语句对应一个方法要执行所使用的SQL语句-->
+<!--id必须等于对应类的方法名(为了使方法和SQL语句产生映射关系) resultType代表返回值的类型-->
+<mapper namespace="org.exh.epidemic_covid19_analyse_system.dao.CosmopolitanRecordDao">
+    <select id="selectList" resultType="org.exh.epidemic_covid19_analyse_system.entity.CosmopolitanRecord">
+        SELECT cname,exactDate,totalNum,healedNum,deadNum,increasedNum FROM cosmopolitan_epidemic_table
+    </select>
+
+    <select id="selectListByCname" resultType="org.exh.epidemic_covid19_analyse_system.entity.CosmopolitanRecord">
+        SELECT cname,exactDate,totalNum,healedNum,deadNum,increasedNum FROM cosmopolitan_epidemic_table
+        WHERE cname = #{cname}
+    </select>
+
+    <select id="selectOneByCnameAndDate" resultType="org.exh.epidemic_covid19_analyse_system.entity.CosmopolitanRecord">
+        SELECT cname,exactDate,totalNum,healedNum,deadNum,increasedNum FROM cosmopolitan_epidemic_table
+        WHERE cname = #{cname} AND exactDate=#{exactDate}
+    </select>
+</mapper>

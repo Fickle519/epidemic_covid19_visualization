@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./static/imgs/titleImg.png" rel="icon" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./static/css/bootstrap-reboot.min.css">
+
+    <title>国内疫情统计分析</title>
+    <style>
+        .card{
+            width: 500px;
+            height: 400px;
+            float: left;
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+        .cardContainer{
+            position: relative;
+            margin-left: 40px;
+        }
+        .btn-primary{
+            position: absolute;
+            bottom: 5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <img src="./static/imgs/headImg.png" alt="titleImg">
+        <a class="navbar-brand" href="index.html">疫情数据统计与检索</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">首页<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="domestic.html">国内疫情</a>
+                <li class="nav-item">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="cosmopolitan.html">国外疫情</a>
+                <li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link" href="retrieve.html">疫情搜索</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-1" type="search" placeholder="Searching Epidemic Situation;"
+                       aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container theme-showcase" role="main">
+
+    <div id="bar" style="width: 1150px;height: 325px;"></div>
+
+    <div class="cardContainer">
+        <div class="card" style="width: 240px;">
+            <img src="./static/imgs/masks.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">累计确诊</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner" class="btn btn-primary">Look more</a>
+            </div>
+        </div>
+        <div class="card" style="width: 240px;">
+            <img src="./static/imgs/doctor.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">累计治愈</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner" class="btn btn-primary">Look more</a>
+            </div>
+        </div>
+        <div class="card" style="width: 240px;">
+            <img src="./static/imgs/vacine.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">累计死亡</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner" class="btn btn-primary">Look more</a>
+            </div>
+        </div>
+        <div class="card" style="width: 240px;">
+            <img src="./static/imgs/virus.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">现有确诊</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner" class="btn btn-primary">Look more</a>
+            </div>
+        </div>
+    </div>
+    <div id="test">
+        <span></span>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"-->
+<!--        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"-->
+<!--        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"-->
+<!--        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"-->
+<!--        crossorigin="anonymous"></script>-->
+<script src="./static/js/jquery-3.4.1.min.js"></script>
+<script src="./static/js/bootstrap.bundle.min.js"></script>
+<script src="./static/js/bootstrap.min.js"></script>
+<script src="static/js/echarts.min.js"></script>
+<script src="./static/js/customize/barChart.js"></script>
+<script src="./static/js/customize/util.js"></script>
+
+<script type="text/javascript">
+    var xticks = ['湖北','四川','北京','天津','河南','内蒙古','安徽','河北','山东','上海'];
+    var domesticTotalNum=0;
+    var XYMapping={
+
+    }
+    for (var x in xticks){
+        transferData('proByPname.do', 'pname='+xticks[x],function (res) {
+            // console.log(res[res.length-1].totalNum+"---"+new Date(res[res.length-1].exactDate));
+            XYMapping[xticks[x]] = res[res.length-1]
+        });
+    }
+    console.log(XYMapping)
+
+
+    var xData = ['滨海', '乡村', '历史文化', '主题乐园', '自然景观', '红色旅游', '工业旅游', '亲子游', '休闲度假', '其他'];
+    var seriesData = [{
+        value: 56
+    }, {
+        value: 156
+    }, {
+        value: 256
+    }, {
+        value: 86
+    }, {
+        value: 96
+    }, {
+        value: 36
+    }, {
+        value: 126
+    }, {
+        value: 176
+    }, {
+        value: 261
+    }, {
+        value: 121
+    }];
+    drawBar('bar', xData, seriesData);
+</script>
+</body>
+
+</html>
